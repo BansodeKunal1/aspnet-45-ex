@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Welcome to OpenShift - ASP.NET 4.5 Application1</title>
+    <title>Welcome to OpenShift - ASP.NET 4.5 Application1one</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
     <script language="c#" runat="server">
