@@ -1,94 +1,81 @@
-<%@ Page Language="C#" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Debug="true" %>
 
-<html>
-<head>
-    <title>Welcome to OpenShift - ASP.NET 4.5 Application1one</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="main.css" rel="stylesheet" />
-    <script language="c#" runat="server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-        public void Page_Load(object sender, EventArgs e)
-        {
-            Type type = Type.GetType("Mono.Runtime");
-            if (type != null)
-            {
-                System.Reflection.MethodInfo displayName = type.GetMethod("GetDisplayName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-                if (displayName != null)
-                    dvVersion.InnerHtml = "Current application running on Mono <b>" + displayName.Invoke(null, null) + "</b>";
-            }
-            else
-            {
-                var targetFw = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.Versioning.TargetFrameworkAttribute), false);
-                string framworkName = ((System.Runtime.Versioning.TargetFrameworkAttribute)targetFw[0]).FrameworkName;
-                dvVersion.InnerHtml = "Current application running on <b>" + framworkName + "</b>";
-            }
-
-            dvEnvironmentVaraiable.InnerHtml = string.Empty;
-            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-                dvEnvironmentVaraiable.InnerHtml += string.Format("{0} = {1}<br/>", de.Key.ToString().Trim(), de.Value.ToString().Trim());
-        }
-    </script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Login Page</title>
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <%--<link href="css/bootstrap-theme.min.css" rel="stylesheet" />--%>
 </head>
 <body>
-    <section class="container">
-        <hgroup>
-            <h1>Welcome to your .NET application on OpenShift Demo</h1>
-        </hgroup>
-
-
-        <div class="row">
-            <section class="col-xs-12 col-sm-6 col-md-6">
-                <section>
-                    <h2>How to use this example application</h2>
-                    <p>For instructions on how to use this application with OpenShift, start by reading the <a href="http://docs.openshift.org/latest/dev_guide/templates.html#using-the-quickstart-templates" target="_blank">Developer Guide</a>.</p>
-
-                    <h2>.NET Framework version</h2>
-                    <p id="dvVersion" runat="server" />
-
-                    <h2>Application Environment Variables</h2>
-                    <b>NOTE: Environment variables may include secure content. Do not expose all your environment variables.</b>
-                    <br/>
-                    <br/>
-                    <p id="dvEnvironmentVaraiable" runat="server">
-                    </p>
-
-                </section>
-
-            </section>
-            <section class="col-xs-12 col-sm-6 col-md-6">
-
-                <h2>Managing your application</h2>
-
-                <p>Documentation on how to manage your application from the Web Console or Command Line is available at the <a href="http://docs.openshift.org/latest/dev_guide/overview.html" target="_blank">Developer Guide</a>.</p>
-
-                <h3>Web Console</h3>
-                <p>You can use the Web Console to view the state of your application components and launch new builds.</p>
-
-                <h3>Command Line</h3>
-                <p>With the <a href="http://docs.openshift.org/latest/cli_reference/overview.html" target="_blank">OpenShift command line interface</a> (CLI), you can create applications and manage projects from a terminal.</p>
-
-                <h3>Click2Cloud's OpenShift Tool for Visual Studio</h3>
-                <p>With the <a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a>, you can create applications and manage projects right from your Visual Studio IDE.</p>
-                <p>Watch Click2Cloud's OpenShift Tool in action on <a href="https://www.youtube.com/playlist?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" target="_blank">YouTube</a>.</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" frameborder="0" allowfullscreen></iframe>
-
-                <h2>Development Resources</h2>
-                <ul>
-                    <li><a href="http://docs.openshift.org/latest/welcome/index.html" target="_blank">OpenShift Documentation</a></li>
-                    <li><a href="https://github.com/openshift/origin" target="_blank">Openshift Origin GitHub</a></li>
-                    <li><a href="https://github.com/openshift/source-to-image" target="_blank">Source To Image GitHub</a></li>
-                    <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/nodejs.html" target="_blank">Getting Started with Node.js on OpenShift</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/openshift" target="_blank">Stack Overflow questions for OpenShift</a></li>
-                    <li><a href="http://git-scm.com/documentation" target="_blank">Git documentation</a></li>
-                    <li><a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a></li>
-                    <li><a href="http://click2cloud.net/docs/tools/index.html?productid=9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool Documentation</a></li>
-                </ul>
-            </section>
+    <form id="form1" runat="server">
+        <div align="center">
+            <h2>Employee Details</h2>
         </div>
+        <div style="height: 483px; margin-top: 33px" align="left">
 
-        <footer>
-            <div class="logo"><a href="http://click2cloud.net/" target="_blank"></a></div>
-        </footer>
-    </section>
+            <asp:Label ID="Label5" runat="server" ForeColor="#ff3300"></asp:Label>
+
+
+            <br />
+            <br />
+            <br />
+            <asp:Table ID="Table1" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label2" runat="server" Text="First Name" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label6" runat="server" Text="Last Name" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="TextBox5" runat="server" ></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label3" runat="server" Text="Address" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="Label4" runat="server" Text="City" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;</asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Insert" Width="108px" />
+                        <asp:Button ID="Button2" runat="server" align="right" OnClick="Button2_Click" Text="Search" Style="float: inherit" Width="108px" />
+                        <asp:Button ID="Button3" runat="server" align="right" OnClick="Button3_Click" Text="List Employee" Style="float: inherit" Width="108px" />
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+
+            &nbsp;&nbsp;
+    
+        <br />
+            <br />
+            <br />
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+        </div>
+    </form>
 </body>
 </html>
